@@ -1,0 +1,76 @@
+<div class="pad">
+	<h3 translate>Zone </h3>
+	<div id="zonesGrid"></div>
+	<div id="wnd">
+		<button class="k-button close-button">First in queue</button>
+	</div>
+</div>
+
+<script id="rowTemplate" type="text/x-kendo-tmpl">
+    <tr data-uid="#: uid #">
+		<td>#: zoneId #</td>
+		<td>#: zoneName #</td>
+		<td>#: freeCarsCount #</td>
+		<td>#: waitTime #</td>
+        <td>
+            # for (var i = 0; i < carsList.length; i++) { #
+				<button id='#=carsList[i].carNumber#'  data-opid='#=carsList[i].operatingCompanyId#' data-status='#=carsList[i].statusTime# 'onClick='firstInQueue(event);'style="display: inline-block "  class='#: carsList[i].dispatchStatusId #'>
+					#: carsList[i].carString#
+                </button>
+			# } #
+        </td>
+   </tr>
+</script>
+
+<script type="text/x-kendo-template" id="template">
+	<div id="details-container">
+		<h2>Status Time: #= time #</h2>
+		<button class="k-button close-button">First in queue</button>
+	</div>
+</script>
+
+
+<script>
+	var grid = $("#zonesGrid").data("kendoGrid");
+	var wnd = $("#wnd")
+		.kendoWindow({
+			height: 100,
+			width: 340,
+			visible: false
+		})
+		.data("kendoWindow");
+
+	$(".close-button").click(function (e) {
+		edit_queue(wnd.element.attr('data-cNum'), wnd.element.attr('data-opid'))
+		$(this)
+			.closest("[data-role=window]")
+			.data("kendoWindow")
+			.close();
+		//grid.refresh();
+		//grid.dataSource.read();
+	});
+
+	function firstInQueue(e) {
+		var dataItem = $(e.currentTarget).closest("button");
+		var statustime = dataItem.attr('data-status');
+		var time = statustime.split("T").join(",");
+
+		wnd.element.attr('data-cNum', $(e.target).attr('id'));
+		wnd.element.attr('data-opid', $(e.target).attr('data-opid'));
+		wnd.title($(e.target).attr('id') + "  Time: " + time);
+
+		wnd.center().open();
+	}
+	function edit_queue(cNum, opid) {
+		var id = $(this).attr('data-id');
+		jQuery.ajax({
+			url: root + "Cars/setQueue?carNumber=" + cNum + "&operatingCompanyId=" + opid,
+			type: 'PUT',
+			success: function (data) {
+			},
+			error: function (data) {
+				console.log(data);
+			}
+		});
+	}
+</script>

@@ -1,0 +1,335 @@
+body {
+  background: #fafafa;
+  color: #454544;
+  line-height: 2.4285;
+  font-family: Arial, Verdana, sans-serif;
+  font-size: 168%;
+}
+/*controller view container */
+.pad {
+  margin-right: 1%;
+}
+.navbar {
+  margin-bottom: 0;
+  border-radius: 0;
+}
+/*top and bottom navbars */
+.navbar-fixed-top {
+  position: relative;
+  background: #243246;
+}
+
+.navbar .navbar-custom {
+  /* margin-bottom: 0; */
+  background-color: #ebeef0;
+  /* border-radius: 0; */
+  color: black;
+}
+#bottomNavbar > ul > li {
+  border-right: 1px solid #bbb;
+  color: #1d1e1f;
+}
+
+li:last-child {
+  border-right: none;
+}
+#bottomNavbar > ul > li:hover {
+  background-color: #79bfbb;
+}
+
+.navbar > .container .navbar-brand,
+.navbar > .container-fluid .navbar-brand {
+  margin-left: -182px;
+}
+.flex-container {
+  display: flex;
+  /* flex-wrap: nowrap; */
+  /* background-color: DodgerBlue; */
+}
+.nav > li > a:hover,
+.nav > li > a:focus {
+  text-decoration: none;
+  background-color: #79bfbb;
+  color: #1d1e1f;
+  border: 2px solid #79bfbb;
+}
+.nav > li > a {
+  color: #000;
+  font-family: Arial, Verdana, sans-serif;
+}
+.active {
+  text-decoration: none;
+  background-color: #79bfbb;
+  color: #1d1e1f;
+}
+.navbar-toggle .icon-bar {
+  background-color: #79bfbb;
+}
+
+.nav-tabs {
+  margin-bottom: -20px;
+  color: aliceblue;
+  border-bottom: 0;
+}
+.row {
+  margin-right: -120px;
+  margin-left: -38px;
+}
+
+/*Top Clear button*/
+#clearBtn {
+  margin-top: 45px;
+}
+/*lables for the colored realtime car status*/
+.navbar-nav > li > a {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  color: white;
+  font-family: Arial, Verdana, sans-serif;
+}
+.content.blue {
+  font-size: 110%;
+  float: left;
+  width: 100%;
+  padding: 60px 0;
+  background-color: #344255;
+  height: 100vh;
+}
+
+/*color codes for car status */
+.nav {
+  padding-left: 23px;
+  padding-right: 34px;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+  color: white;
+}
+
+.navbar-nav > li {
+  float: left;
+  padding-left: 5px;
+}
+
+.btn.outline.free {
+  background: #30d965;
+  border: 2px solid #30d965;
+}
+
+.btn.outline.sfh {
+  background: #db40c5;
+  border: 2px solid #db40c5;
+}
+
+.btn.outline.occ {
+  background: #ff3636;
+  border: 2px solid #ff3636;
+}
+
+.btn.outline.ntav {
+  background: #eef51b;
+  border: 2px solid #eef51b;
+}
+
+.btn.outline {
+  color: #111;
+  width: 75px;
+  padding: 4px 12px;
+  font-family: Arial, Verdana, sans-serif;
+  font-size: large;
+}
+
+ul {
+  list-style-type: none;
+}
+/*Modal table */
+.table-hover > tbody > tr:hover {
+  background-color: #79bfbb(154, 197, 243);
+  border: 1px solid #79bfbb;
+}
+.btn,
+.btn:focus {
+  background-color: #79bfbb;
+  border: 1px solid #79bfbb;
+  border-radius: 0;
+  color: black;
+}
+
+.btn:hover {
+  background-color: white;
+  color: black;
+  border: 1px solid #79bfbb;
+}
+
+.btn a {
+  color: black;
+}
+
+.btn:hover a {
+  color: #79bfbb;
+}
+.btn-sm,
+.btn-group-sm > .btn {
+  padding: 5px 10px;
+  font-size: 17px;
+  line-height: 1.5;
+  border-radius: 3px;
+}
+
+.btn-load {
+  width: 350px;
+  height: 40px;
+  margin: 18px auto;
+  display: block;
+  font-size: 20px;
+  text-transform: capitalize;
+}
+
+.modal-container {
+  flex-direction: column;
+}
+
+.modal {
+  top: 10%;
+  padding-right: 20px;
+  justify-content: center;
+  align-self: center;
+}
+
+.modal-dialog {
+  width: auto;
+  max-width: 600px;
+  display: flex;
+  justify-content: center;
+}
+
+.form-container {
+  display: flex;
+  margin-top: 37px;
+  height: 754px;
+
+  width: 100%;
+  flex: 1 1 90%;
+  flex-direction: column;
+  align-items: flex-start;
+}
+input[type="text"] {
+  font-family: Times, serif;
+  font-size: 120%;
+}
+
+.form-container label {
+  display: flex;
+  margin-bottom: -10px;
+}
+
+form {
+  padding-left: 20px;
+}
+
+/*check boxes */
+
+input[type="checkbox"] {
+  display: block;
+  padding-left: 15px;
+  text-indent: -15px;
+}
+.vanish {
+  vertical-align: bottom;
+  position: absolute;
+  top: -1px;
+  *overflow: hidden;
+}
+
+#filter ul > li {
+  margin: 41px -27;
+  margin-top: 20px;
+  font-family: Arial, Verdana, sans-serif;
+}
+
+.checkbox-inline input[type="checkbox"] {
+  position: absolute;
+  margin-top: 4px \9;
+  margin-left: -20px;
+  float: left;
+  margin-right: 0.4em;
+  margin-bottom: 10px;
+}
+.groupcheck {
+  margin-top: -20px;
+}
+input[type="checkbox"] + label {
+  display: inline-block;
+  margin-left: 0.5em;
+  margin-right: 2em;
+  line-height: 1em;
+}
+input[type="checkbox"] {
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(2); /* IE */
+  -moz-transform: scale(2); /* FF */
+  -webkit-transform: scale(2); /* Safari and Chrome */
+  -o-transform: scale(2); /* Opera */
+  padding: 10px;
+}
+
+/* login and loggedin page */
+.dispatchtxt {
+  color: white;
+  font-family: Arial, Verdana, sans-serif;
+}
+.wrapper {
+  text-align: center;
+}
+.btn .center {
+  position: absolute;
+  top: 50%;
+}
+
+/* controller bodies */
+.hidden {
+  display: none;
+}
+.topcorner {
+  position: absolute;
+  top: 0px;
+  right: 56px;
+}
+
+h3 {
+  font-size: 29px;
+  padding-left: 38%;
+}
+.single-div {
+  display: inline-block;
+}
+@media (min-width: 768px) {
+  .seven-cols .col-md-1,
+  .seven-cols .col-sm-1,
+  .seven-cols .col-lg-1 {
+    width: 100%;
+    *width: 100%;
+  }
+}
+
+@media (min-width: 992px) {
+  .seven-cols .col-md-1,
+  .seven-cols .col-sm-1,
+  .seven-cols .col-lg-1 {
+    width: 14.285714285714285714285714285714%;
+    *width: 14.285714285714285714285714285714%;
+  }
+}
+
+/**
+ *  The following is not really needed in this case
+ *  Only to demonstrate the usage of @media for large screens
+ */
+@media (min-width: 1200px) {
+  .seven-cols .col-md-1,
+  .seven-cols .col-sm-1,
+  .seven-cols .col-lg-1 {
+    width: 14.285714285714285714285714285714%;
+    *width: 14.285714285714285714285714285714%;
+  }
+}

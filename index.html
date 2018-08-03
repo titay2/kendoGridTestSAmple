@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- <base href="/"> -->
+    <title>Car Cervilance</title>
+    <!-- Basic style -->
+    <link rel="icon" type="image/png" href="assets/logo/logo.ico">
+    <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="bower_components/angular-bootstrap/ui-bootstrap-csp.css" rel="stylesheet" />
+    <link href="bower_components/Kendo-ui/styles/kendo.common.min.css" rel="stylesheet" />
+    <link href="bower_components/Kendo-ui/styles/kendo.default.min.css" rel="stylesheet" />
+    <link href="bower_components/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet" />
+    <link href="css/main.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="app-container" ng-app="app">
+        <div>
+            <nav class="navbar navbar-inverse navbar-fixed-top navbar-expand-md navbar-light bg-ligh">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand">
+                            <img src="assets/logo/logo.png" alt="Semel Logo"> </a>
+                    </div>
+
+                    <div class="collapse navbar-collapse" class="flex-container" id="topNavbar">
+                        <!-- <div></div> -->
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a translate>Free</a>
+                                <button id="freecars" type="button" class="btn btn-primary btn-default outline free"></button>
+                            </li>
+                            <li>
+                                <a translate>SFH</a>
+                                <button id="soonfh" type="button" class="btn btn-primary btn-default outline sfh"></button>
+                            </li>
+                            <li>
+                                <a translate>Occ</a>
+                                <button id="occupied" type="button" class="btn btn-primary btn-default outline occ"></button>
+                            </li>
+                            <li>
+                                <a translate>Not Av</a>
+                                <button id="notavailable" type="button" class="btn btn-primary btn-default outline ntav"></button>
+                            </li>
+                        </ul>
+                        <div class="form-group row flex-container">
+                            <div class="col-md-3">
+                                <label style="color: white; " for="SelectPI" translate>CALL</label>
+                                <select id="inputCenter" class="form-control" placeholder="Call center" ng-model="body.OperatingCompany"></select>
+
+                            </div>
+                            <div class="col-md-3">
+                                <label style="color: white; " for="SelectP" translate>AREA</label>
+                                <select id="inputArea" list="area" class="form-control" placeholder="Area" ng-model="body.Posting"></select>
+
+                            </div>
+                            <div class="col-md-2">
+                                <label style="color: white;" class="control-label" for="propertyInput" translate>PROPERTY</label>
+                                <input class="form-control" id="propertyInput" placeholder="Property" ng-model="body.Properties">
+                            </div>
+                            <div class="col-md-2  ">
+                                <label style="color: white;" for="vihecle" translate>VEHICLE</label>
+                                <input class="form-control" id="vihecle" placeholder="Vehicle" ng-model="body.vihecle" />
+                            </div>
+                            <div class="col-md-1" id="clearLable">
+                                <button id="clearBtn" class="btn" type="button" translate>CLEAR</button>
+                            </div>
+
+                            <div class="col-md-1 topcorner  ">
+                                <label style="color: white;" class="control-label" for="lang" placeholder="English">&nbsp;
+                                    <i class="fa fa-language"></i> {{'LANGUAGE' | translate}}</label>
+                                <select id="lang" class="form-control" ng-model="body.language">
+                                    <option value="fi-FI"> {{'Finnish' | translate}}</option>
+                                    <option value="en-GB"> {{'English' | translate}}</option>
+                                    <option value="sv-SE"> {{'Swedish' | translate}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </nav>
+        </div>
+
+        <div>
+            <nav class="navbar">
+                <div class="navbar navbar-custom">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bottomNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div class="collapse navbar-collapse row seven-cols" id="bottomNavbar">
+                        <ul class="nav  nav-tabs">
+                            <li class="col-md-1">
+                                <a ui-sref="carInfo" ui-sref-active="active" translate>CarInfo</a>
+                            </li>
+
+                            <li class="col-md-1">
+                                <a ui-sref="zone" ui-sref-active="active" translate>Zone </a>
+                                <!-- ng-click="HelloService.refresh()" -->
+                            </li>
+
+
+
+
+                            </li>
+
+                        </ul>
+
+                    </div>
+                </div>
+
+            </nav>
+        </div>
+
+        <div cache-view="false" ui-view class="testview"> </div>
+
+    </div>
+
+
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <!-- <script src="node_modules/@aspnet/signalr/dist/browser/signalr.min.js"></script> -->
+    <script src="assets/jquery.signalR-2.2.3.min.js"></script>
+    <!-- <script src="http://localhost:8888/signalr/hubs"></script> -->
+
+    <!-- <script src="http://testcarsurveillanceworker.cloudapp.net:8080/signalr/hubs"></script>  -->
+    <script src="http://testcarsurveillanceworker.semel.fi:8080/signalr/hubs"></script>
+
+
+
+    <script src="bower_components/moment/moment.js"></script>
+    <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="bower_components/Kendo-ui/js/kendo.all.min.js"></script>
+    <script type="text/javascript" src="bower_components/Kendo-ui/js/kendo.core.min.js"></script>
+    <script type="text/javascript" src="bower_components/Kendo-ui/js/cultures/kendo.culture.sv-SE.min.js"></script>
+    <script type="text/javascript" src="bower_components/Kendo-ui/js/cultures/kendo.culture.fi-FI.min.js"></script>
+    <script type="text/javascript" src="bower_components/Kendo-ui/js/cultures/kendo.culture.en-GB.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-jwt/dist/angular-jwt.min.js"></script>
+    <script type="text/javascript" src="bower_components/hello/dist/hello.all.min.js"></script>
+    <script type="text/javascript" src="bower_components/ng-hello/dist/ng-hello.min.js"></script>
+    <script type="text/javascript" src="bower_components/underscore/underscore-min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-cookies/angular-cookies.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script type="text/javascript" src="bower_components/angular-daterangepicker/js/angular-daterangepicker.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-translate/angular-translate.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-translate-storage-local/angular-translate-storage-local.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+
+    <script type="text/javascript" src="IndexCtrl.js"></script>
+    <script type="text/javascript" src="settingValues.js"></script>
+
+    <!--	Import component scripts-->
+    <script src="components/services/apiService.js"></script>
+    <script src="components/services/kendodsService.js"></script>
+    <script src="components/services/filterService.js"></script>
+
+    <script src="components/services/translateService.js"></script>
+    <script src="components/carInfo/CarInfoCtrl.js"></script>
+    <script src="components/zone/ZoneCtrl.js"></script>
+
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+
+</body>
+
+</html>
